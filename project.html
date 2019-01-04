@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en-US" class="no-js is-smooth-scroll-compatible">
+
+<head>
+	<!-- Meta, title, CSS, favicons, etc. -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="Jingqi Fan">
+	<title>Jingqi Fan</title>
+
+  <!-- Bundled vendor CSS files -->
+  <link href="css/bootstrap-reboot.min.css" rel="stylesheet">
+  <link href="css/bootstrap-grid.min.css" rel="stylesheet">
+  <!-- CSS files -->
+	<link href="css/projects.css" rel="stylesheet">
+
+</head>
+<body>
+  <div id="vapp">
+    <p>Hello World.</p>
+    <colored-box class="red" v-show="display == 'redbox'" />
+    <colored-box class="green" v-show="display == 'greenbox'" />
+  </div>
+
+
+
+  <!-- Load Vue -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vuex"></script>
+
+  <!-- Load our Vue component. -->
+  <script src="vue.js"></script>
+
+</body>
