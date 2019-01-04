@@ -20,8 +20,8 @@
 <body>
   <div id="vapp">
     <p>Hello World.</p>
-    <colored-box class="red" v-show="display == 'redbox'" />
-    <colored-box class="green" v-show="display == 'greenbox'" />
+    <colored-box class="red" v-show="display == 'redbox'" :project_name = "project_name" />
+    <colored-box class="green" v-show="display == 'greenbox'" :project_name = "project_name" />
   </div>
 
 
@@ -31,6 +31,7 @@
   <script src="https://unpkg.com/vuex"></script>
 
   <!-- Load our Vue component. -->
-  <script src="vue.js"></script>
+  <script src="js/vue_project_components.js"></script>
+  <script src="js/vue_project.js"></script>
 
 </body>

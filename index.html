@@ -79,66 +79,17 @@
       </svg>
     </div>
     <div class="intro-img">
-      <img class="intro-img-item-1" src="../img/intro-img1.jpg">
-      <img class="intro-img-item-2" src="../img/intro-img2.jpg">
-      <img class="intro-img-item-3" src="../img/intro-img3.jpg">
+      <img class="intro-img-item-1" src="./img/intro-img1.jpg">
+      <img class="intro-img-item-2" src="./img/intro-img2.jpg">
+      <img class="intro-img-item-3" src="./img/intro-img3.jpg">
     </div>
   </section>
 
   <main class="site-content">
-    <div class="row no-gutters portrait-row"> 
-      <div class="col-md-4 offset-md-1 m-top">
-        <a href="#" class="prj-link prj-1">
-          <img class="prj-1-img" src="../img/prj-1.jpg">
-          <div class="title">Brave New World</div>
-        </a>
-      </div>
-      <div class="col-md-4 offset-md-3">
-        <a href="#" class="prj-link prj-2">
-          <img class="prj-2-img" src="../img/prj-2.jpg">
-          <div class="title">Sam Fox Calendar</div>
-        </a>
-      </div>
+    <div id="v-app">
+      <my_project></my_project>
     </div>
-    <div class="row no-gutters landscape-row-right">
-      <div class="col-md-9 offset-md-3">
-        <a href="#" class="prj-link prj-3">
-          <img class="prj-3-img" src="../img/prj-3.jpg">
-          <div class="title">Noise: Within, Among and Beyond</div>
-        </a>
-      </div>
-    </div>
-    <div class="row no-gutters portrait-row">
-      <div class="col-md-4 offset-md-1 m-top">
-        <a href="#" class="prj-link prj-4">
-          <img class="prj-4-img" src="../img/prj-4.jpg">
-          <div class="title">Tu Youyou</div>
-        </a>
-      </div>
-      <div class="col-md-4 offset-md-3">
-        <a href="#" class="prj-link prj-5">
-          <img class="prj-5-img" src="../img/prj-5.jpg">
-          <div class="title">Wout van Aert</div>
-        </a>
-      </div>
-    </div>
-    <div class="row no-gutters landscape-row-left">
-        <div class="col-md-9">
-          <a href="#" class="prj-link prj-6">
-            <img class="prj-6-img" src="../img/prj-6.jpg">
-            <div class="title p-left">In Praise of the Messed Up Mind</div>
-          </a>
-        </div>
-      </div>
-      <div class="row no-gutters portrait-row last-row">
-          <div class="col-md-4 offset-md-1">
-            <a href="#" class="prj-link prj-7">
-              <img class="prj-7-img" src="../img/prj-7.jpg">
-              <div class="title">Process Books</div>
-            </a>
-          </div>
-      </div>
-    </main>
+  </main>
     <div class="next-link">
         <div class="sub-text-link">Go To</div>
         <a href="#" class="main-link">Pro<span class="walt">F</span>I<span class="walt">L</span>e</a>
@@ -149,12 +100,18 @@
 
 
   <!-- end: content -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/plugins/CSSPlugin.min.js"></script>
-  
+
+  <!-- Load Vue -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vuex"></script>
+
   <!-- Own JS -->
   <script src="js/main.js"></script>
-  
+  <script src="js/vue_main_components.js"></script>
+  <script src="js/vue_main.js"></script>
+
 </body>
 </html>
