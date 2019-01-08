@@ -14,14 +14,12 @@
   <link href="css/bootstrap-reboot.min.css" rel="stylesheet">
   <link href="css/bootstrap-grid.min.css" rel="stylesheet">
   <!-- CSS files -->
-	<link href="css/projects.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
 
 </head>
 <body>
-  <div id="vapp">
-    <p>Hello World.</p>
-    <colored-box class="red" v-show="display == 'redbox'" :project_name = "project_name" />
-    <colored-box class="green" v-show="display == 'greenbox'" :project_name = "project_name" />
+  <div id="v-project">
+
   </div>
 
 
@@ -30,7 +28,7 @@
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="https://unpkg.com/vuex"></script>
 
-  <!-- Load our Vue component. -->
+  <!-- Load our Vue component -->
   <script src="js/vue_project_components.js"></script>
   <script src="js/vue_project.js"></script>
 

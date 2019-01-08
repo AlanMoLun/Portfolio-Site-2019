@@ -1,26 +1,61 @@
 
 $(document).ready(function() {
+  let curTop = 0;
+  let currentPosition = { x: 0, y: 0 },
+  newPosition = { x: 0, y: 0 };
+  // let tm = new TweenMax();
+  // if (tl.isActive()) { return; }
+
   mouseMove();
-  const marqueeInstance = Marquee3k.init();
-  let scrollTimeout = null
-
-  // window.addEventListener('scroll', function () {
-  //   clearTimeout(scrollTimeout)
-
-  //   marqueeInstance.speed = 5
-
-  //   scrollTimeout = setTimeout(function () {
-  //     marqueeInstance.speed = 1.5
-  //   }, 500)
-  // })
-
-  $(window).on('scroll', function () {
-    let factor = 1 + ($(window).scrollTop())/100;
-    marqueeInstance.speed = 2 * factor;
-  });
-  marqueeInstance.speed = 2;
-
   bgColorChange();
+  // findSpacing();
+  // cursor();
+
+  
+  $(document).scroll(function(e) {
+    let newTop = $(window).scrollTop();
+    let diff = newTop - curTop;
+    curTop = newTop;
+    let posTop = $('.cursor').position().top;
+    let posLeft = $('.cursor').position().left;
+    TweenMax.set($('.cursor'), {
+      x: posLeft,
+      y: posTop + diff
+  })
+  })
+
+  $(document).on("mousemove", function (e) {
+    currentPosition.x = e.pageX;
+    currentPosition.y = e.pageY;
+    // newPosition.x += (currentPosition.x - newPosition.x) / 1.5;
+    // newPosition.y += (currentPosition.y - newPosition.y) / 1.5;
+
+    TweenMax.set($('.cursor'), {
+      x: currentPosition.x,
+      y: currentPosition.y
+    })
+  })
+
+  $('.prj-link, .next-link').on("mouseenter", function () {
+    // $('.cursor').css({
+    //   "display": "block"
+    // });
+    TweenMax.to($('.cursor'), .05, {
+      autoAlpha:1,
+    });
+  })
+
+  $('.prj-link, .next-link').on("mouseleave", function () {
+    TweenMax.to($('.cursor'), .05, {
+      autoAlpha: 0,
+    });
+    // $('.cursor').css({
+    //   "display": "none"
+    // });
+  })
+
+
+
 })
 
 function mouseMove () {
@@ -71,16 +106,104 @@ function bgColorChange () {
   })
 }
 
-function titleHover() {
-  $(".hover-title").on("mousemove", function() {
-      var t = i.site.mousePos.pageX - (e(this).offset().left + e(this).outerWidth() / 2)
-        , s = i.site.mousePos.pageY - (e(this).offset().top + e(this).outerHeight() / 2);
-      e(this).find(".follow-title").css({
-          transform: "translate(calc( -50% + " + t / 2 + "px), " + s / 2 + "px)"
-      }),
-      e(this).find(".slow-title").css({
-          transform: "translate(calc( -50% + " + t / 8 + "px), " + s / 8 + "px)"
-      })
+function findSpacing() {
+  let referencePadding = $('.equal-padding').css('padding-left').replace(/[^-\d\.]/g, '');
+  let spacing = $('.spacing-reference').offset().left - referencePadding;
+  $('.project-m-bottom').css("margin-bottom", `${spacing}px`);
+}
+
+function cursor() {
+
+
+  
+  $('.prj-link').on("mouseenter", function () {
+    $('.cursor').css({
+      "display": "block"
+    });
+    TweenMax.to($('.cursor'), .3, {
+      autoAlpha:1,
+    });
+  })
+
+  $('.prj-link').on("mouseleave", function () {
+    $('.cursor').css({
+      "display": "none"
+    });
+    TweenMax.to($('.cursor'), .3, {
+      autoAlpha: 0,
+    });
+  })
+
+  $(document).on("mousemove", function (e) {
+    currentPosition.x = e.pageX;
+    currentPosition.y = e.pageY;
+    // newPosition.x += (currentPosition.x - newPosition.x) / inertia;
+    // newPosition.y += (currentPosition.y - newPosition.y) / inertia;
+
+    TweenMax.set($('.cursor'), {
+      x: currentPosition.x,
+      y: currentPosition.y
+    })
   })
 }
 
+
+
+
+
+
+
+
+
+
+
+
+/* <div class="row no-gutters equal-padding grid-m-bottom"> 
+      <div class="col-md-4 offset-md-1 m-top">
+        <v-project-thumbnail></v-project-thumbnail>
+      </div>
+      <div class="col-md-4 offset-md-2">
+        <a href="#" class="prj-link prj-2">
+          <img class="prj-2-img" src="../img/prj-2.jpg">
+          <div class="title">Sam Fox Calendar</div>
+        </a>
+      </div>
+    </div>
+    <div class="row no-gutters right-padding grid-m-bottom">
+      <div class="col-md-9 offset-md-3">
+        <a href="#" class="prj-link prj-3">
+          <img class="prj-3-img" src="../img/prj-3.jpg">
+          <div class="title">Noise: Within, Among and Beyond</div>
+        </a>
+      </div>
+    </div>
+    <div class="row no-gutters equal-padding grid-m-bottom">
+      <div class="col-md-4 offset-md-1 m-top">
+        <a href="#" class="prj-link prj-4">
+          <img class="prj-4-img" src="../img/prj-4.jpg">
+          <div class="title">Tu Youyou</div>
+        </a>
+      </div>
+      <div class="col-md-4 offset-md-2">
+        <a href="#" class="prj-link prj-5">
+          <img class="prj-5-img" src="../img/prj-5.jpg">
+          <div class="title">Wout van Aert</div>
+        </a>
+      </div>
+    </div>
+    <div class="row no-gutters left-padding grid-m-bottom">
+        <div class="col-md-9">
+          <a href="#" class="prj-link prj-6">
+            <img class="prj-6-img" src="../img/prj-6.jpg">
+            <div class="title p-left">In Praise of the Messed Up Mind</div>
+          </a>
+        </div>
+      </div>
+      <div class="row no-gutters equal-padding">
+          <div class="col-md-4 offset-md-1">
+            <a href="#" class="prj-link prj-7">
+              <img class="prj-7-img" src="../img/prj-7.jpg">
+              <div class="title">Process Books</div>
+            </a>
+          </div>
+      </div> */
