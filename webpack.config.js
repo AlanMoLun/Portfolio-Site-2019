@@ -8,10 +8,10 @@ function resolve (dir) {
 
 module.exports = {
   entry: {
-      home: './public/javascripts/views/home.js',
+      home: './js/app.js',
   },
   output: {
-    path: path.resolve(__dirname, './public/build'),
+    path: path.resolve(__dirname, './build'),
     filename: '[name].js'
   },
   module: {

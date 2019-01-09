@@ -42,3 +42,4 @@ const Home = Vue.component('home', {
 		redirect(route) { this.$router.push(`/${route}`); }
 	}
 });
+
